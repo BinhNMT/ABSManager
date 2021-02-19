@@ -10,8 +10,8 @@
 #define PID_LIM_MIN -40.0f
 #define PID_LIM_MAX  40.0f
 
-float update(float inp) {
-
+float update(float inp) 
+{
     static float output = 0.0f;
     static const float alpha = 0.02f;
 

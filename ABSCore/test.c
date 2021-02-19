@@ -5,12 +5,12 @@
 #include "ASW_Interpolate.h"
 #include "ASW_WheelSpeedHandling.h"
 
-void testcase1(struct VehicleState *ptrObj, int loop, float velocity)
+void testcase1(struct VehicleState *ptrObj, float velocity)
 {
     float distance  = brakingDistance(velocity, FRICTCOEFF);
     printf("Braking Distance = %f\n", distance);
-    
-    for (int i = 0; i < loop; i++)
+
+    while (1)
     {
         interpolVehicleSpeed(ptrObj);
         if (ptrObj->vehicleSpeed <= 0)
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 {
     int testcase = atoi(argv[1]);
     int velocity = atof(argv[2]);
-    int loop = atoi(argv[3]);
+    // int loop = atoi(argv[3]);
     
     struct VehicleState State;
 
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
     switch (testcase)
     {
     case 1:
-        testcase1(&State, loop, velocity);
+        testcase1(&State, velocity);
         break;
     
     case 2:
